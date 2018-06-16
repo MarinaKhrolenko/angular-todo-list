@@ -6,13 +6,21 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
+import {DataViewModule} from 'primeng/dataview';
 
 
 import { AppComponent } from './app.component';
+import { ToDoItemComponent } from './to-do-item/to-do-item.component';
+import { CreateToDoItemComponent } from './create-to-do-item/create-to-do-item.component';
+import { ToDoItemListComponent } from './to-do-item-list/to-do-item-list.component';
+import { ToDoItemService } from './to-do-item.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToDoItemComponent,
+    CreateToDoItemComponent,
+    ToDoItemListComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +29,10 @@ import { AppComponent } from './app.component';
     FormsModule,
     CalendarModule,
     BrowserAnimationsModule,
-    InputTextModule
+    InputTextModule,
+    DataViewModule
   ],
-  providers: [],
+  providers: [ToDoItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

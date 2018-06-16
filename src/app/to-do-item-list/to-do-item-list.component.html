@@ -1,0 +1,14 @@
+<p-dataView [value]="listOfItems">
+  <ng-template let-item pTemplate="listItem">
+       <div *ngIf="!edit && item">
+          <input type="checkbox" (change)="done(item.id)">
+          <span [class.done]='item.done'>{{item.title}} {{item.calendar}}</span>
+          <p-button label="Edit" (onClick)="onEdit()"></p-button>
+          <p-button label="Remove" (onClick)="onRemove(item.id)"></p-button>
+       </div>
+       <div *ngIf="edit && item">
+        <input type="text" pInputText [(ngModel)]="item.title" placeholder="item.title"/>
+        <p-button label="Save" (onClick)="saveEdit(item)"></p-button>
+       </div>
+  </ng-template>
+</p-dataView>
